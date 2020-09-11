@@ -12,8 +12,8 @@ steps:
   inputs:
     command: 'get'
     arguments: '-d'
-    workingDirectory: 'trips/'
+    workingDirectory: '**trips/'
 - task: Go@0
   inputs:
     command: 'build'
-    workingDirectory: 'trips/'
+    workingDirectory: '**trips/'
