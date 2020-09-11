@@ -4,11 +4,15 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-
 steps:
 - script: echo 'Go Build'
   displayName: "GO Build"
 
+- task: Go@0
+  inputs:
+    command: 'get'
+    arguments: '-d'
+    workingDirectory: 'trips/'
 - task: Go@0
   inputs:
     command: 'build'
