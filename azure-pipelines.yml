@@ -9,19 +9,18 @@ steps:
   displayName: "GO Build"
 
 - task: GoTool@0
-  inputs:
-    version: '1.10'
-  
-
+  displayName: 'Use Go 1.10'
 - task: Go@0
+  displayName: 'go get'
   inputs:
-    command: 'get'
     arguments: '-d'
-    workingDirectory: 'apis/trips/'
+    workingDirectory: apis/trips
 - task: Go@0
+  displayName: 'go build'
   inputs:
-    command: 'build'
-    workingDirectory: 'apis/trips/'
+    command: build
+    arguments: '-o "$(System.TeamProject).exe"'
+    workingDirectory: apis/trips
 
 
 
