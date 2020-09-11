@@ -11,16 +11,12 @@ variables:
   modulePath: '$(GOPATH)/src/github.com/$(build.repository.name)' # Path to the module's code
 
 steps:
-- script: echo 'Go Build'
+- script: echo 'Go Build-WG'
   displayName: "GO Build"
 
 - task: GoTool@0
   displayName: 'Use Go 1.10'
-- task: Go@0
-  displayName: 'go get'
-  inputs:
-    arguments: '-d'
-    workingDirectory: apis/trips
+
 - task: Go@0
   displayName: 'go build'
   inputs:
