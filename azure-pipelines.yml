@@ -5,8 +5,23 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo '$(system.defaultWorkingDirectory)'
+- script: echo 'Go Build'
   displayName: "GO Build"
+
+- task: GoTool@0
+  inputs:
+    version: '1.10'
+  
+
+- task: Go@0
+  inputs:
+    command: 'get'
+    arguments: '-d'
+    workingDirectory: 'apis/trips/'
+- task: Go@0
+  inputs:
+    command: 'build'
+    workingDirectory: 'apis/trips/'
 
 
 
