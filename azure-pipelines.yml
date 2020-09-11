@@ -4,11 +4,12 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line scriptsyyyyy'
-  
-- task: DotNetCoreCLI@2
+- script: echo 'Go Build'
+  displayName: "GO Build"
+
+- task: Go@0
   inputs:
     command: 'build'
-    projects: '**apis/**/*.csproj'
+    workingDirectory: '**trips/*.go'
